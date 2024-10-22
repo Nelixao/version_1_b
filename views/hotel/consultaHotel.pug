@@ -1,0 +1,25 @@
+extends ../layout/index.pug
+
+block cuerpoContenido
+    h1.text-center= pagina
+
+    div(class="row justify-content-center")
+        each h in hotel
+            div(class="col-md-4 mb-4")
+                div(class="card h-100 shadow-sm")
+                    img(src="/img/imagen_gerente.jpg", class="card-img-top")
+                    div(class="card-body text-center")
+                        h5.card-title Nombre: #{h.nombre}
+                        p.card-text
+                            | Dirección: #{h.direccion}
+                        p.card-text
+                            | Teléfono: #{h.telefono}
+                        p.card-text
+                            | Correo: #{h.correo}
+                        if h.gerente
+                            p.card-text.text-success
+                                | Gerente: #{h.gerente.nombre}
+                        else
+                            p.card-text.text-danger
+                                | Gerente: No asignado
+.
